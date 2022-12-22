@@ -14,9 +14,9 @@ MODULE_VERSION("0.01");
 int pid = ZERO;
 module_param(pid, int, ZERO);
 
-static int __init a3_init(void)
+static int __init kernelmodule_init(void)
 {
-    struct task_struct *t1;
+    struct task_struct *t;
     t = pid_task(find_vpid(pid), PIDTYPE_PID);
     if (t==0 && !t)
     {
@@ -31,7 +31,7 @@ static int __init a3_init(void)
     
     return ZERO;
 }
-static void __exit a3_exit(void)
+static void __exit =kernelmodule_exit(void)
 {
     printk(KERN_INFO "Executed Successfully!\n");
 }
